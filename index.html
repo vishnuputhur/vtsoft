@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VT Soft - Your Software Partner | Mobile Apps & Web Development</title>
+    <title>VT Soft - Your Software Partner | 2026 Edition</title>
     <meta name="description" content="VTSoft - Professional software development company since 2009. Specializing in mobile applications, web design, and custom software solutions.">
+    
+    <link rel="icon" type="image/png" href="https://vishnuputhur.github.io/shipyardnagar/icon-512.png">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -34,22 +37,12 @@
             transition: all 0.3s ease;
         }
         
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.8rem;
-            color: var(--secondary) !important;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            line-height: 1.2;
-        }
-        
-        .brand-tagline {
-            font-size: 0.7rem;
-            font-weight: 400;
-            color: var(--light);
-            margin-top: -5px;
-            letter-spacing: 1px;
+        /* ✅ Navbar Logo Style */
+        .nav-logo {
+            height: 60px;
+            width: auto;
+            border-radius: 12px;
+            transition: all 0.3s ease;
         }
         
         .nav-link {
@@ -367,6 +360,78 @@
             background: var(--accent);
             transform: translateY(-5px);
         }
+
+        /* ✅ NEW DOWNLOAD SECTION STYLES */
+        .download-section {
+            padding: 100px 0;
+            background: #fdfdfd;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            height: 100%;
+            position: relative;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(30, 58, 95, 0.1);
+            border-color: var(--accent);
+        }
+
+        .app-logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .badge-2026 {
+            background: var(--accent2);
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-weight: 600;
+        }
+
+        .made-in-india {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #444;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .flag-dot {
+            width: 10px;
+            height: 10px;
+            background: #ff9933;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 2px #138808;
+        }
+
+        .footer-logo-img {
+            height: 70px;
+            width: auto;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
         
         /* Animations */
         @keyframes float {
@@ -381,6 +446,9 @@
         
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
+            .nav-logo {
+                height: 50px;
+            }
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -392,24 +460,14 @@
             .section-title {
                 font-size: 1.8rem;
             }
-            
-            .navbar-brand {
-                font-size: 1.5rem;
-            }
-            
-            .brand-tagline {
-                font-size: 0.6rem;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                VT Soft
-                <span class="brand-tagline">Your Software Partner</span>
+                <img src="https://vishnuputhur.github.io/shipyardnagar/icon-512.png" alt="VT Soft Logo" class="nav-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -429,10 +487,10 @@
                         <a class="nav-link" href="#clients">Our Clients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#downloads">Downloads</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Page</a>
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
@@ -449,16 +507,14 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h1>Your Trusted Software Partner Since 2009</h1>
+            <h1>Your Trusted Software Partner 2026</h1>
             <p>Professional mobile application development, web design, and custom software solutions for societies, funds, and organizations.</p>
             <a href="#contact" class="btn btn-primary btn-lg">Get In Touch</a>
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="py-5" style="padding-top: 80px; padding-bottom: 80px;">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
@@ -494,7 +550,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
             <h2 class="section-title">About VT Soft</h2>
@@ -510,7 +565,7 @@
                     <div class="row mt-4 mt-lg-0">
                         <div class="col-md-6">
                             <div class="stats-box">
-                                <div class="stats-number">14+</div>
+                                <div class="stats-number">16+</div>
                                 <div class="stats-text">Years of Experience</div>
                             </div>
                         </div>
@@ -538,7 +593,6 @@
         </div>
     </section>
 
-    <!-- Clients Section -->
     <section id="clients" class="clients-section">
         <div class="container">
             <h2 class="section-title">Our Valued Clients</h2>
@@ -574,7 +628,35 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <section id="downloads" class="download-section">
+        <div class="container">
+            <h2 class="section-title">VTSoft App Store</h2>
+            <p class="text-center mb-5">Install our apps directly to your home screen via PWA technology.</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5">
+                    <div class="app-card">
+                        <span class="badge-2026">2026 UPDATE</span>
+                        <img src="https://cslblooddonation.onrender.com/icon-192.png" alt="CSL Blood" class="app-logo-img">
+                        <h3>CSL Blood Donation</h3>
+                        <p>A noble initiative. <strong style="color: #ff6b6b;">Only for CSL Employees.</strong> Fast and secure donor search.</p>
+                        <a href="https://cslblooddonation.onrender.com/install.html" class="btn btn-primary w-100">Install App</a>
+                        <div class="made-in-india"><span class="flag-dot"></span> Made with ❤️ in India</div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="app-card">
+                        <span class="badge-2026">2026 UPDATE</span>
+                        <img src="https://vishnuputhur.github.io/shipyardnagar/icon-192.png" alt="Shipyard Nagar" class="app-logo-img">
+                        <h3>Shipyard Nagar</h3>
+                        <p>Official association management tool for Shipyard Nagar Residential Association members.</p>
+                        <a href="https://vishnuputhur.github.io/shipyardnagar/install.html" class="btn btn-primary w-100">Install App</a>
+                        <div class="made-in-india"><span class="flag-dot"></span> Made with ❤️ in India</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="contact-info">
         <div class="container">
             <h2 class="section-title text-white">Contact Us</h2>
@@ -607,7 +689,7 @@
                         <i class="fas fa-map-marker-alt contact-icon"></i>
                         <div>
                             <h5>Address</h5>
-                            <p>Shipyard Nagar, Cochin, Kerala, India</p>
+                            <p>Nettoor, Ernakulam, Kerala, India</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -629,7 +711,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-links mb-3">
@@ -637,8 +718,8 @@
                 <a href="#services">Services</a>
                 <a href="#about">About</a>
                 <a href="#clients">Our Clients</a>
+                <a href="#downloads">Downloads</a>
                 <a href="#contact">Contact</a>
-                <a href="about.html">About Page</a>
             </div>
             
             <div class="social-icons">
@@ -648,7 +729,9 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
             
-            <p>Powered by VT@Soft © 2025 | Version 2.0</p>
+            <img src="https://vishnuputhur.github.io/shipyardnagar/icon-512.png" alt="VT Soft Logo" class="footer-logo-img">
+            
+            <p>Powered by VT@Soft © 2026 | Professional Software Solutions</p>
         </div>
     </footer>
 
@@ -658,10 +741,10 @@
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                navbar.style.padding = '10px 0';
+                navbar.style.padding = '5px 0';
                 navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
             } else {
-                navbar.style.padding = '15px 0';
+                navbar.style.padding = '10px 0';
                 navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             }
         });
