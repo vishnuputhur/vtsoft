@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About VT Soft - Your Software Partner Since 2009</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E3A5F;
+            --secondary: #F5E6C4;
+            --accent: #2c7be5;
+            --dark: #0F2A45;
+            --light: #ffffff;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--secondary) !important;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+        
+        .brand-tagline {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--light);
+            margin-top: -5px;
+            letter-spacing: 1px;
+        }
+        
+        .nav-link {
+            color: var(--light) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 80px 0 50px;
+            text-align: center;
+        }
+        
+        .content-section {
+            padding: 60px 0;
+        }
+        
+        .content-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .mission-box {
+            background: linear-gradient(135deg, #4ecdc4, #2c7be5);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .india-tag {
+            background: linear-gradient(135deg, #ff9933, #ffffff, #138808);
+            color: #000080;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            display: inline-block;
+            margin: 10px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links a {
+            color: var(--secondary);
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                VT Soft
+                <span class="brand-tagline">Your Software Partner</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="terms.html">Terms</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About VT Soft</h1>
+            <p class="lead">Your trusted software partner since 2009</p>
+            <div class="india-tag">
+                <i class="fas fa-flag me-2"></i>Proudly Made in India
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-box">
+                <h2 class="mb-4">Our Story</h2>
+                <p>
+                    <strong>VT Soft</strong> began its journey in <strong>2009</strong>, born from a deep passion for coding and web design. What started as a personal endeavor has grown into a trusted software development company serving clients across various sectors.
+                </p>
+
+                <div class="mission-box">
+                    <h3><i class="fas fa-bullseye me-2"></i>Our Mission</h3>
+                    <p class="mb-0">
+                        To deliver <strong>high-quality software products at affordable prices</strong>, making technology accessible to everyone while actively supporting and promoting <strong>Digital India</strong> initiatives.
+                    </p>
+                </div>
+
+                <p>
+                    From the early days of developing applications for platforms like <strong>Nokia Symbian</strong> to creating modern Android applications and web solutions, we have consistently evolved with the changing technology landscape.
+                </p>
+
+                <div class="highlight-box">
+                    <h4><i class="fas fa-heart me-2"></i>Our Philosophy</h4>
+                    <p>
+                        We believe that quality software shouldn't come with a hefty price tag. Our commitment is to create <strong>reliable, efficient, and user-friendly solutions</strong> that deliver exceptional value to our clients while maintaining the highest standards of quality.
+                    </p>
+                </div>
+
+                <h3 class="mt-5 mb-4">Our Projects</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="project-card">
+                            <h5><i class="fas fa-calculator me-2"></i>CSL Calculations</h5>
+                            <p class="mb-0">A comprehensive calculator app designed specifically for Cochin Shipyard employees, featuring overtime calculations, PF management, and holiday calendars.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-card">
+                            <h5><i class="fas fa-building me-2"></i>Society Management</h5>
+                            <p class="mb-0">Custom software solutions for housing societies and residential complexes for efficient management and communication.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-card">
+                            <h5><i class="fas fa-hand-holding-usd me-2"></i>Fund Management</h5>
+                            <p class="mb-0">Specialized applications for fund management, accounting, and financial tracking for organizations and groups.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-card">
+                            <h5><i class="fas fa-mobile-alt me-2"></i>Custom Apps</h5>
+                            <p class="mb-0">Tailored mobile applications for businesses and organizations to streamline their operations and improve efficiency.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box mt-4">
+                    <h4><i class="fas fa-users me-2"></i>Why Choose VT Soft?</h4>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <p><strong>✓ 14+ Years Experience</strong><br>Proven track record since 2009</p>
+                            <p><strong>✓ Affordable Solutions</strong><br>Quality software at reasonable prices</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>✓ Made in India</strong><br>Proudly supporting local talent</p>
+                            <p><strong>✓ Client-Centric Approach</strong><br>Solutions tailored to your needs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 p-4 bg-light rounded text-center">
+                    <h4>Join Us in Building Digital India</h4>
+                    <p class="mb-3">We are committed to creating software solutions that empower businesses and individuals across India.</p>
+                    <div class="india-tag">
+                        <i class="fas fa-laptop-code me-2"></i>Empowering Digital Transformation
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4 bg-light rounded">
+                    <h4>Contact Information</h4>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <p><strong>Phone:</strong> 9037383927 | 9037383928</p>
+                            <p><strong>Email:</strong> vtsoft@yahoo.com</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Address:</strong> Shipyard Nagar, Cochin, Kerala, India</p>
+                            <p><strong>Website:</strong> www.vtsoft.netlify.app</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links mb-3">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="about.html">About Page</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="refund.html">Refund Policy</a>
+            </div>
+            <p>Powered by VT@Soft © 2025 | Version 2.0 | <span class="india-tag" style="padding: 3px 10px; font-size: 0.8rem;">Proudly Made in India</span></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
