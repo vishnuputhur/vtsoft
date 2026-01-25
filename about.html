@@ -29,22 +29,11 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.8rem;
-            color: var(--secondary) !important;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            line-height: 1.2;
-        }
-        
-        .brand-tagline {
-            font-size: 0.7rem;
-            font-weight: 400;
-            color: var(--light);
-            margin-top: -5px;
-            letter-spacing: 1px;
+        .nav-logo {
+            height: 60px;
+            width: auto;
+            border-radius: 12px;
+            transition: all 0.3s ease;
         }
         
         .nav-link {
@@ -52,6 +41,22 @@
             font-weight: 500;
             margin: 0 10px;
             transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
         }
         
         .nav-link:hover {
@@ -136,6 +141,22 @@
         .footer-links a:hover {
             text-decoration: underline;
         }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-logo {
+                height: 50px;
+            }
+            
+            .content-box {
+                padding: 25px 20px;
+            }
+            
+            .footer-links a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -143,8 +164,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                VT Soft
-                <span class="brand-tagline">Your Software Partner</span>
+                <img src="https://vishnuputhur.github.io/shipyardnagar/icon-512.png" alt="VT Soft Logo" class="nav-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -166,8 +186,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="about.html">About Page</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="terms.html">Terms</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Policies
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="terms.html">Terms & Conditions</a></li>
+                            <li><a class="dropdown-item" href="refund.html">Refund Policy</a></li>
+                            <li><a class="dropdown-item" href="privacy.html">Privacy Policy</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -244,7 +271,7 @@
                     <h4><i class="fas fa-users me-2"></i>Why Choose VT Soft?</h4>
                     <div class="row mt-3">
                         <div class="col-md-6">
-                            <p><strong>✓ 14+ Years Experience</strong><br>Proven track record since 2009</p>
+                            <p><strong>✓ 16+ Years Experience</strong><br>Proven track record since 2009</p>
                             <p><strong>✓ Affordable Solutions</strong><br>Quality software at reasonable prices</p>
                         </div>
                         <div class="col-md-6">
@@ -270,8 +297,10 @@
                             <p><strong>Email:</strong> vtsoft@yahoo.com</p>
                         </div>
                         <div class="col-md-6">
-                            <p><strong>Address:</strong> Shipyard Nagar, Cochin, Kerala, India</p>
-                            <p><strong>Website:</strong> www.vtsoft.netlify.app</p>
+                            <p><strong>Address:</strong> Shipyard Nagar, Nettoor, Ernakulam, Kerala, India 682040</p>
+                            <p><strong>Website:</strong> www.vtsoft.onrender.com</p>
+                            <p><strong>Founder:</strong> Vishnu T</p>
+                            <p><strong>CEO:</strong> Sreelekshmi S S</p>
                         </div>
                     </div>
                 </div>
@@ -292,10 +321,59 @@
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="refund.html">Refund Policy</a>
             </div>
-            <p>Powered by VT@Soft © 2025 | Version 2.0 | <span class="india-tag" style="padding: 3px 10px; font-size: 0.8rem;">Proudly Made in India</span></p>
+            <p>Powered by VT@Soft © 2026 | Version 2.0 | <span class="india-tag" style="padding: 3px 10px; font-size: 0.8rem;">Proudly Made in India</span></p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '5px 0';
+                navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.padding = '10px 0';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+        
+        // Mobile menu auto-close
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            [...navLinks, ...dropdownItems].forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 992) {
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                        if (bsCollapse) {
+                            bsCollapse.hide();
+                        }
+                    }
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
