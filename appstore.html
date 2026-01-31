@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VT Soft App Store | Download Our Apps</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E3A5F;
+            --secondary: #F5E6C4;
+            --accent: #2c7be5;
+            --accent2: #ff6b6b;
+            --accent3: #4ecdc4;
+            --dark: #0F2A45;
+            --light: #ffffff;
+            --appstore-bg: #f0f8ff;
+            --card-shadow: 0 10px 30px rgba(30, 58, 95, 0.1);
+            --card-hover-shadow: 0 20px 50px rgba(30, 58, 95, 0.2);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--appstore-bg);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-logo {
+            height: 60px;
+            width: auto;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link {
+            color: var(--light) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 80px 0 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232c7be5' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .app-grid {
+            padding: 60px 0;
+        }
+        
+        .app-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(44, 123, 229, 0.1);
+            transform: perspective(1000px) rotateY(0deg);
+            transform-style: preserve-3d;
+        }
+        
+        .app-card:hover {
+            transform: perspective(1000px) rotateY(5deg) translateY(-10px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: var(--accent);
+        }
+        
+        .app-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--accent), var(--accent3));
+            z-index: 2;
+        }
+        
+        .app-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--accent2), #ff4757);
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            z-index: 3;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            border: 3px solid white;
+        }
+        
+        .app-card:hover .app-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+        
+        .app-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .app-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .app-features {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        
+        .feature-item i {
+            color: var(--accent);
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .install-btn {
+            background: linear-gradient(135deg, var(--accent), #1a5bbf);
+            border: none;
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 30px;
+            width: 100%;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .install-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent3), var(--accent));
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .install-btn:hover:before {
+            left: 0;
+        }
+        
+        .install-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(44, 123, 229, 0.4);
+        }
+        
+        .made-in-india {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #444;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .flag-dot {
+            width: 10px;
+            height: 10px;
+            background: #ff9933;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 2px #138808;
+        }
+        
+        .category-filter {
+            margin-bottom: 40px;
+        }
+        
+        .category-btn {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin: 0 5px 10px;
+            font-weight: 500;
+            color: #555;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: linear-gradient(135deg, var(--accent), var(--accent3));
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 123, 229, 0.2);
+        }
+        
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-logo-img {
+            height: 70px;
+            width: auto;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--secondary);
+            margin: 0 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-logo {
+                height: 50px;
+            }
+            
+            .hero-section {
+                padding: 60px 0 30px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+                padding: 0 15px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+            
+            .app-grid {
+                padding: 40px 0;
+            }
+            
+            .app-card {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .app-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .category-btn {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+                margin: 0 3px 8px;
+            }
+            
+            .footer-links a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(44, 123, 229, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(44, 123, 229, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(44, 123, 229, 0); }
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://vishnuputhur.github.io/shipyardnagar/icon-512.png" alt="VT Soft Logo" class="nav-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#downloads">App Store</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="appstore.html">All Apps</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Policies
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="terms.html">Terms & Conditions</a></li>
+                            <li><a class="dropdown-item" href="refund.html">Refund Policy</a></li>
+                            <li><a class="dropdown-item" href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">VT Soft App Store</h1>
+            <p class="hero-subtitle">Discover our collection of mobile applications designed to make your life easier. All apps are FREE, Made in India 🇮🇳, and built with privacy in mind.</p>
+            <div class="category-filter text-center">
+                <button class="category-btn active" data-filter="all">All Apps</button>
+                <button class="category-btn" data-filter="csl">CSL Apps</button>
+                <button class="category-btn" data-filter="utility">Utility</button>
+                <button class="category-btn" data-filter="society">Society</button>
+                <button class="category-btn" data-filter="productivity">Productivity</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Grid -->
+    <section class="app-grid">
+        <div class="container">
+            <div class="row" id="app-container">
+                <!-- Solar Pro -->
+                <div class="col-lg-4 col-md-6 app-item" data-category="utility productivity">
+                    <div class="app-card">
+                        <span class="app-badge">NEW 2026</span>
+                        <img src="https://vishnuputhur.github.io/cslv2/solar/solar-icon-192.png" alt="Solar Pro" class="app-icon floating">
+                        <h3 class="app-title">Solar Pro</h3>
+                        <p class="app-description">Monitor real-time energy production, banking balance, and carbon savings from your solar plant with detailed analytics and reports.</p>
+                        
+                        <div class="app-features">
+                            <div class="feature-item">
+                                <i class="fas fa-sun"></i>
+                                <span>Real-time energy monitoring</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Detailed analytics & reports</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>Carbon footprint tracking</span>
+                            </div>
+                        </div>
+                        
+                        <button class="install-btn pulse" onclick="window.open('https://vishnuputhur.github.io/cslv2/solar/install-solar.html', '_blank')">
+                            <i class="fas fa-download me-2"></i> Install App
+                        </button>
+                        <div class="made-in-india">
+                            <span class="flag-dot"></span> Made with ❤️ in India
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSL Attendance -->
+                <div class="col-lg-4 col-md-6 app-item" data-category="csl productivity">
+                    <div class="app-card">
+                        <span class="app-badge">POPULAR</span>
+                        <img src="https://vishnuputhur.github.io/cslv2/atn-icon-192.png" alt="CSL Attendance" class="app-icon floating" style="animation-delay: 0.5s;">
+                        <h3 class="app-title">CSL Attendance</h3>
+                        <p class="app-description">Manage your shipyard work schedule, record punching times, track leaves, and calculate overtime effortlessly.</p>
+                        
+                        <div class="app-features">
+                            <div class="feature-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Shift schedule management</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Leave tracking & planning</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-calculator"></i>
+                                <span>Overtime calculations</span>
+                            </div>
+                        </div>
+                        
+                        <button class="install-btn" onclick="window.open('https://vishnuputhur.github.io/cslcalculations/install.html', '_blank')">
+                            <i class="fas fa-download me-2"></i> Install App
+                        </button>
+                        <div class="made-in-india">
+                            <span class="flag-dot"></span> Made with ❤️ in India
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSL Calendar -->
+                <div class="col-lg-4 col-md-6 app-item" data-category="csl utility">
+                    <div class="app-card">
+                        <span class="app-badge">2026 UPDATE</span>
+                        <img src="https://vishnuputhur.github.io/cslv2/cal-icon-192.png" alt="CSL Calendar" class="app-icon floating" style="animation-delay: 1s;">
+                        <h3 class="app-title">CSL Calendar</h3>
+                        <p class="app-description">Stay updated with official shipyard shift schedules, holidays, and important dates for the year 2026.</p>
+                        
+                        <div class="app-features">
+                            <div class="feature-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2026 shift schedules</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-umbrella-beach"></i>
+                                <span>Official holidays</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-bell"></i>
+                                <span>Important date reminders</span>
+                            </div>
+                        </div>
+                        
+                        <button class="install-btn" onclick="window.open('https://vishnuputhur.github.io/cslv2/calender/install-cal.html', '_blank')">
+                            <i class="fas fa-download me-2"></i> Install App
+                        </button>
+                        <div class="made-in-india">
+                            <span class="flag-dot"></span> Made with ❤️ in India
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSL Blood Donation -->
+                <div class="col-lg-4 col-md-6 app-item" data-category="csl utility">
+                    <div class="app-card">
+                        <span class="app-badge">NOBLE CAUSE</span>
+                        <img src="https://cslblooddonation.onrender.com/icon-192.png" alt="CSL Blood Donation" class="app-icon floating" style="animation-delay: 1.5s;">
+                        <h3 class="app-title">CSL Blood Donation</h3>
+                        <p class="app-description">A noble initiative for CSL employees. Fast and secure donor search platform for emergency blood requirements.</p>
+                        
+                        <div class="app-features">
+                            <div class="feature-item">
+                                <i class="fas fa-heartbeat"></i>
+                                <span>Emergency donor search</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure & private</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-users"></i>
+                                <span>CSL employees only</span>
+                            </div>
+                        </div>
+                        
+                        <button class="install-btn" onclick="window.open('https://cslblooddonation.onrender.com/install.html', '_blank')">
+                            <i class="fas fa-download me-2"></i> Install App
+                        </button>
+                        <div class="made-in-india">
+                            <span class="flag-dot"></span> Made with ❤️ in India
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipyard Nagar -->
+                <div class="col-lg-4 col-md-6 app-item" data-category="society utility">
+                    <div class="app-card">
+                        <span class="app-badge">SOCIETY APP</span>
+                        <img src="https://vishnuputhur.github.io/shipyardnagar/icon-192.png" alt="Shipyard Nagar" class="app-icon floating" style="animation-delay: 2s;">
+                        <h3 class="app-title">Shipyard Nagar</h3>
+                        <p class="app-description">Official association management tool for Shipyard Nagar Residential Association members.</p>
+                        
+                        <div class="app-features">
+                            <div class="feature-item">
+                                <i class="fas fa-home"></i>
+                                <span>Society management</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-comments"></i>
+                                <span>Member communication</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-file-invoice"></i>
+                                <span>Maintenance tracking</span>
+                            </div>
+                        </div>
+                        
+                        <button class="install-btn" onclick="window.open('https://vishnuputhur.github.io/shipyardnagar/install.html', '_blank')">
+                            <i class="fas fa-download me-2"></i> Install App
+                        </button>
+                        <div class="made-in-india">
+                            <span class="flag-dot"></span> Made with ❤️ in India
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSL Calculator -->
+                <div class="col-lg-4 col-md-6 app-item" data-category="csl productivity">
+                    <div class="app-card">
+                        <span class="app-badge">ESSENTIAL</span>
+                        <img src="https://vishnuputhur.github.io/shipyardnagar/icon-512.png" alt="CSL Calculator" class="app-icon floating" style="animation-delay: 2.5s;">
+                        <h3 class="app-title">CSL Calculator Pro</h3>
+                        <p class="app-description">Advanced calculator for shipyard employees with specialized formulas for PF, overtime, and salary calculations.</p>
+                        
+                        <div class="app-features">
+                            <div class="feature-item">
+                                <i class="fas fa-calculator"></i>
+                                <span>PF & Gratuity calculations</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Salary computations</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Overtime calculations</span>
+                            </div>
+                        </div>
+                        
+                        <button class="install-btn" onclick="window.open('https://vishnuputhur.github.io/cslcalculations/', '_blank')">
+                            <i class="fas fa-download me-2"></i> Coming Soon
+                        </button>
+                        <div class="made-in-india">
+                            <span class="flag-dot"></span> Made with ❤️ in India
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links mb-3">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#about">About</a>
+                <a href="appstore.html">App Store</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="about.html">About Page</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            
+            <img src="https://vishnuputhur.github.io/shipyardnagar/icon-512.png" alt="VT Soft Logo" class="footer-logo-img">
+            
+            <p>Powered by VT@Soft © 2026 | Professional Software Solutions | Made in India 🇮🇳</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '5px 0';
+                navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.padding = '10px 0';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // App filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const appItems = document.querySelectorAll('.app-item');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Filter apps
+                    appItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Mobile menu auto-close
+            const navLinks = document.querySelectorAll('.nav-link');
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            [...navLinks, ...dropdownItems].forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 992) {
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                        if (bsCollapse) {
+                            bsCollapse.hide();
+                        }
+                    }
+                });
+            });
+            
+            // Click outside to close menu
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth <= 992) {
+                    const isClickInsideNavbar = document.querySelector('.navbar').contains(event.target);
+                    const isClickOnToggler = event.target.closest('.navbar-toggler');
+                    
+                    if (!isClickInsideNavbar && !isClickOnToggler) {
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                        if (bsCollapse) {
+                            bsCollapse.hide();
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
