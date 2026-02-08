@@ -399,7 +399,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -443,7 +442,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <h1 class="hero-title">VT Soft App Store</h1>
@@ -458,15 +456,45 @@
         </div>
     </section>
 
-    <!-- App Grid -->
     <section class="app-grid">
         <div class="container">
             <div class="row" id="app-container">
-                <!-- Solar Pro -->
+
+                <div class="col-lg-4 col-md-6 app-item" data-category="csl productivity utility">
+                    <div class="app-card">
+                        <span class="app-badge">LATEST</span>
+                        <img src="https://vishnuputhur.github.io/shipyardnagar/icon-512.png" alt="CSL Calculations" class="app-icon floating">
+                        <h3 class="app-title">CSL Calculations</h3>
+                        <p class="app-description">A comprehensive utility tool specifically designed to integrate all essential daily calculations required for Cochin Shipyard employees in one place.</p>
+                        
+                        <div class="app-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Daily essential utilities</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-microchip"></i>
+                                <span>Fast and accurate results</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Designed for CSL workers</span>
+                            </div>
+                        </div>
+                        
+                        <button class="install-btn pulse" onclick="window.open('https://cslcalculations.netlify.app/install.html', '_blank')">
+                            <i class="fas fa-download me-2"></i> Install App
+                        </button>
+                        <div class="made-in-india">
+                            <span class="flag-dot"></span> Made with ❤️ in India
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-lg-4 col-md-6 app-item" data-category="utility productivity">
                     <div class="app-card">
                         <span class="app-badge">NEW 2026</span>
-                        <img src="https://vishnuputhur.github.io/cslv2/solar/solar-icon-192.png" alt="Solar Pro" class="app-icon floating">
+                        <img src="https://vishnuputhur.github.io/cslv2/solar/solar-icon-192.png" alt="Solar Pro" class="app-icon floating" style="animation-delay: 0.3s;">
                         <h3 class="app-title">Solar Pro</h3>
                         <p class="app-description">Monitor real-time energy production, banking balance, and carbon savings from your solar plant with detailed analytics and reports.</p>
                         
@@ -485,7 +513,7 @@
                             </div>
                         </div>
                         
-                        <button class="install-btn pulse" onclick="window.open('https://vishnuputhur.github.io/cslv2/solar/install-solar.html', '_blank')">
+                        <button class="install-btn" onclick="window.open('https://vishnuputhur.github.io/cslv2/solar/install-solar.html', '_blank')">
                             <i class="fas fa-download me-2"></i> Install App
                         </button>
                         <div class="made-in-india">
@@ -494,11 +522,10 @@
                     </div>
                 </div>
 
-                <!-- CSL Attendance -->
                 <div class="col-lg-4 col-md-6 app-item" data-category="csl productivity">
                     <div class="app-card">
                         <span class="app-badge">POPULAR</span>
-                        <img src="https://vishnuputhur.github.io/cslv2/atn-icon-192.png" alt="CSL Attendance" class="app-icon floating" style="animation-delay: 0.5s;">
+                        <img src="https://vishnuputhur.github.io/cslv2/atn-icon-192.png" alt="CSL Attendance" class="app-icon floating" style="animation-delay: 0.6s;">
                         <h3 class="app-title">CSL Attendance</h3>
                         <p class="app-description">Manage your shipyard work schedule, record punching times, track leaves, and calculate overtime effortlessly.</p>
                         
@@ -526,11 +553,10 @@
                     </div>
                 </div>
 
-                <!-- CSL Calendar -->
                 <div class="col-lg-4 col-md-6 app-item" data-category="csl utility">
                     <div class="app-card">
                         <span class="app-badge">2026 UPDATE</span>
-                        <img src="https://vishnuputhur.github.io/cslv2/cal-icon-192.png" alt="CSL Calendar" class="app-icon floating" style="animation-delay: 1s;">
+                        <img src="https://vishnuputhur.github.io/cslv2/cal-icon-192.png" alt="CSL Calendar" class="app-icon floating" style="animation-delay: 0.9s;">
                         <h3 class="app-title">CSL Calendar</h3>
                         <p class="app-description">Stay updated with official shipyard shift schedules, holidays, and important dates for the year 2026.</p>
                         
@@ -558,11 +584,10 @@
                     </div>
                 </div>
 
-                <!-- CSL Blood Donation -->
                 <div class="col-lg-4 col-md-6 app-item" data-category="csl utility">
                     <div class="app-card">
                         <span class="app-badge">NOBLE CAUSE</span>
-                        <img src="https://cslblooddonation.onrender.com/icon-192.png" alt="CSL Blood Donation" class="app-icon floating" style="animation-delay: 1.5s;">
+                        <img src="https://cslblooddonation.onrender.com/icon-192.png" alt="CSL Blood Donation" class="app-icon floating" style="animation-delay: 1.2s;">
                         <h3 class="app-title">CSL Blood Donation</h3>
                         <p class="app-description">A noble initiative for CSL employees. Fast and secure donor search platform for emergency blood requirements.</p>
                         
@@ -590,11 +615,10 @@
                     </div>
                 </div>
 
-                <!-- Shipyard Nagar -->
                 <div class="col-lg-4 col-md-6 app-item" data-category="society utility">
                     <div class="app-card">
                         <span class="app-badge">SOCIETY APP</span>
-                        <img src="https://vishnuputhur.github.io/shipyardnagar/icon-192.png" alt="Shipyard Nagar" class="app-icon floating" style="animation-delay: 2s;">
+                        <img src="https://vishnuputhur.github.io/shipyardnagar/icon-192.png" alt="Shipyard Nagar" class="app-icon floating" style="animation-delay: 1.5s;">
                         <h3 class="app-title">Shipyard Nagar</h3>
                         <p class="app-description">Official association management tool for Shipyard Nagar Residential Association members.</p>
                         
@@ -622,42 +646,10 @@
                     </div>
                 </div>
 
-                <!-- CSL Calculator -->
-                <div class="col-lg-4 col-md-6 app-item" data-category="csl productivity">
-                    <div class="app-card">
-                        <span class="app-badge">ESSENTIAL</span>
-                        <img src="https://vishnuputhur.github.io/shipyardnagar/icon-512.png" alt="CSL Calculator" class="app-icon floating" style="animation-delay: 2.5s;">
-                        <h3 class="app-title">CSL Calculator Pro</h3>
-                        <p class="app-description">Advanced calculator for shipyard employees with specialized formulas for PF, overtime, and salary calculations.</p>
-                        
-                        <div class="app-features">
-                            <div class="feature-item">
-                                <i class="fas fa-calculator"></i>
-                                <span>PF & Gratuity calculations</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-money-bill-wave"></i>
-                                <span>Salary computations</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-clock"></i>
-                                <span>Overtime calculations</span>
-                            </div>
-                        </div>
-                        
-                        <button class="install-btn" onclick="window.open('https://vishnuputhur.github.io/cslcalculations/', '_blank')">
-                            <i class="fas fa-download me-2"></i> Coming Soon
-                        </button>
-                        <div class="made-in-india">
-                            <span class="flag-dot"></span> Made with ❤️ in India
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-links mb-3">
@@ -703,14 +695,11 @@
             
             categoryBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
                     categoryBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
                     this.classList.add('active');
                     
                     const filter = this.getAttribute('data-filter');
                     
-                    // Filter apps
                     appItems.forEach(item => {
                         if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
                             item.style.display = 'block';
@@ -743,21 +732,6 @@
                         }
                     }
                 });
-            });
-            
-            // Click outside to close menu
-            document.addEventListener('click', function(event) {
-                if (window.innerWidth <= 992) {
-                    const isClickInsideNavbar = document.querySelector('.navbar').contains(event.target);
-                    const isClickOnToggler = event.target.closest('.navbar-toggler');
-                    
-                    if (!isClickInsideNavbar && !isClickOnToggler) {
-                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                        if (bsCollapse) {
-                            bsCollapse.hide();
-                        }
-                    }
-                }
             });
         });
     </script>
