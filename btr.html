@@ -281,7 +281,7 @@
 
         /* ===== LOGO STYLES ===== */
         .logo-img {
-            border-radius: 10px;
+            border-radius: 12px;
             object-fit: contain;
             transition: transform 0.3s ease;
         }
@@ -290,9 +290,10 @@
             transform: rotate(-3deg) scale(1.05);
         }
 
+        /* ===== HEADER LOGO - FIXED: 50% BIGGER (67px) ===== */
         .logo-img-sm {
-            width: 45px;
-            height: 45px;
+            width: 67px;
+            height: 67px;
         }
 
         .logo-img-md {
@@ -349,7 +350,7 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             font-family: var(--font-heading);
             font-weight: 800;
             font-size: 1.3rem;
@@ -479,7 +480,6 @@
             overflow: hidden;
         }
 
-        /* Graphics - Geometric Shapes */
         .hero .graphic-circle {
             position: absolute;
             border-radius: 50%;
@@ -682,7 +682,6 @@
             overflow: hidden;
         }
 
-        /* Graphics for sections */
         .section-graphic {
             position: absolute;
             pointer-events: none;
@@ -1534,11 +1533,15 @@
 
             .logo {
                 font-size: 1.1rem;
+                gap: 10px;
             }
+
+            /* MOBILE LOGO - 50% bigger than before (38px -> 50px) */
             .logo-img-sm {
-                width: 38px;
-                height: 38px;
+                width: 50px;
+                height: 50px;
             }
+
             .logo-tagline {
                 font-size: 0.4rem;
             }
@@ -1601,7 +1604,7 @@
     <header id="header">
         <div class="container navbar">
             <a href="#" class="logo">
-                <!-- Logo - Fixed size (45px) now bigger than text -->
+                <!-- LOGO - NOW 67px (50% BIGGER) -->
                 <img src="logo.jpg" alt="BTR Ventures Logo" class="logo-img logo-img-sm" />
                 <div class="logo-text">
                     BTR<span>Ventures</span>
@@ -1629,7 +1632,6 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="home">
-        <!-- Graphics -->
         <div class="graphic-circle"></div>
         <div class="graphic-circle"></div>
         <div class="graphic-dots"></div>
@@ -1672,7 +1674,6 @@
 
             <div class="hero-image animate-on-scroll">
                 <div class="hero-image-box">
-                    <!-- Logo - Extra Large with floating animation -->
                     <div class="hero-logo float-animation">
                         <img src="logo.jpg" alt="BTR Ventures Logo" />
                     </div>
