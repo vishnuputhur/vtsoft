@@ -25,6 +25,7 @@
             background: #ffffff;
             color: #1e2a3a;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         a {
@@ -54,20 +55,179 @@
             --text-muted: #546e7a;
             --white: #ffffff;
             --shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
-            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.12);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
             --radius: 16px;
-            --transition: 0.3s ease;
+            --transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
             --font-heading: 'Georgia', 'Times New Roman', 'Times', serif;
         }
 
         /* ===== TYPEWRITER / TIMES NEW ROMAN FONTS ===== */
-        h1, h2, h3, h4, .hero-content h1, .section-header h2, .logo, .hero-stats .stat h3, .about-text h3, .btr-section .btr-content h2, .contact-info h3 {
+        h1,
+        h2,
+        h3,
+        h4,
+        .hero-content h1,
+        .section-header h2,
+        .logo,
+        .hero-stats .stat h3,
+        .about-text h3,
+        .btr-section .btr-content h2,
+        .contact-info h3 {
             font-family: var(--font-heading);
             font-weight: 700;
         }
 
-        .tag, .btn, .nav-links a, .hero-sub, .stat p, .service-card p, .why-item p, .property-card .body .location, footer, .contact-form input, .contact-form textarea {
+        .tag,
+        .btn,
+        .nav-links a,
+        .hero-sub,
+        .stat p,
+        .service-card p,
+        .why-item p,
+        .property-card .body .location,
+        footer,
+        .contact-form input,
+        .contact-form textarea {
             font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-14px) scale(1.02);
+            }
+        }
+
+        @keyframes floatSlow {
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(1deg);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0px) scale(1);
+            }
+        }
+
+        @keyframes bounceIcon {
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+            30% {
+                transform: scale(1.25) rotate(-5deg);
+            }
+            60% {
+                transform: scale(1.1) rotate(3deg);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(76, 175, 80, 0);
+            }
+        }
+
+        .float-animation {
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        .float-slow {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px) scale(0.96);
+            transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0px) scale(1);
+        }
+
+        /* ===== 3D & HOVER EFFECTS ===== */
+        .card-3d {
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1), box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+            perspective: 800px;
+            will-change: transform;
+        }
+
+        .card-3d:hover {
+            transform: perspective(800px) rotateX(2.5deg) rotateY(4.5deg) translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .icon-hover {
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .icon-hover:hover i,
+        .icon-hover:hover img {
+            animation: bounceIcon 0.6s ease;
+        }
+
+        .btn-hover {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-hover::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.6s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn-hover:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(76, 175, 80, 0.4);
+        }
+
+        .stat-hover {
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .stat-hover:hover {
+            transform: scale(1.08) translateY(-4px);
+        }
+
+        .stat-hover:hover h3 {
+            color: var(--primary);
         }
 
         /* ===== BUTTONS ===== */
@@ -79,8 +239,10 @@
             border-radius: 50px;
             border: none;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             font-family: 'Inter', 'Segoe UI', sans-serif;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
@@ -91,8 +253,8 @@
 
         .btn-primary:hover {
             background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(76, 175, 80, 0.45);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(76, 175, 80, 0.45);
         }
 
         .btn-outline {
@@ -104,7 +266,7 @@
         .btn-outline:hover {
             background: var(--primary);
             color: #fff;
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.02);
         }
 
         .btn-white {
@@ -114,18 +276,23 @@
 
         .btn-white:hover {
             background: var(--primary-bg);
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.02);
         }
 
         /* ===== LOGO STYLES ===== */
         .logo-img {
             border-radius: 10px;
             object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: rotate(-3deg) scale(1.05);
         }
 
         .logo-img-sm {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
         }
 
         .logo-img-md {
@@ -144,14 +311,14 @@
         }
 
         .logo-img-footer {
-            width: 35px;
-            height: 35px;
-            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
         }
 
         .logo-img-badge {
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             border-radius: 6px;
         }
 
@@ -185,7 +352,7 @@
             gap: 12px;
             font-family: var(--font-heading);
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--text-dark);
         }
 
@@ -196,20 +363,20 @@
         .logo-text {
             display: flex;
             flex-direction: column;
+            line-height: 1.2;
         }
 
         .logo-tagline {
-            font-size: 0.55rem;
+            font-size: 0.5rem;
             font-weight: 400;
             color: var(--text-muted);
             letter-spacing: 1.2px;
             font-family: 'Inter', sans-serif;
             display: block;
-            margin-top: 1px;
         }
 
         .logo-rera {
-            font-size: 0.5rem;
+            font-size: 0.45rem;
             color: var(--primary-dark);
             font-weight: 600;
             font-family: 'Inter', sans-serif;
@@ -218,6 +385,7 @@
             padding: 1px 8px;
             border-radius: 4px;
             margin-top: 1px;
+            width: fit-content;
         }
 
         .nav-links {
@@ -262,6 +430,7 @@
             padding: 10px 24px;
             border-radius: 50px;
             font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .nav-cta::after {
@@ -271,6 +440,7 @@
         .nav-cta:hover {
             background: var(--primary-dark) !important;
             color: #fff !important;
+            transform: scale(1.05);
         }
 
         .hamburger {
@@ -309,15 +479,42 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        /* Graphics - Geometric Shapes */
+        .hero .graphic-circle {
             position: absolute;
-            top: -40%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(76, 175, 80, 0.08) 0%, transparent 70%);
             border-radius: 50%;
+            background: rgba(76, 175, 80, 0.04);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero .graphic-circle:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            top: -150px;
+            right: -100px;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.08), transparent 70%);
+        }
+
+        .hero .graphic-circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: 20px;
+            left: -60px;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.06), transparent 70%);
+        }
+
+        .hero .graphic-dots {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 200px;
+            height: 200px;
+            background-image: radial-gradient(circle, #4caf50 1.5px, transparent 1.5px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 1;
         }
 
         .hero .container {
@@ -382,6 +579,7 @@
             color: var(--primary-dark);
             font-weight: 800;
             font-family: var(--font-heading);
+            transition: color 0.3s ease;
         }
 
         .hero-stats .stat p {
@@ -412,6 +610,12 @@
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .hero-image-box:hover {
+            box-shadow: 0 20px 60px rgba(76, 175, 80, 0.15);
+            transform: scale(1.01);
         }
 
         .hero-image-box .hero-logo {
@@ -419,10 +623,15 @@
         }
 
         .hero-image-box .hero-logo img {
-            width: 120px;
-            height: 120px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            width: 110px;
+            height: 110px;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease;
+        }
+
+        .hero-image-box .hero-logo img:hover {
+            transform: rotate(-5deg) scale(1.05);
         }
 
         .hero-image-box h3 {
@@ -452,6 +661,12 @@
             align-items: center;
             gap: 8px;
             font-family: 'Inter', 'Segoe UI', sans-serif;
+            animation: pulseGlow 2.5s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image-box .floating-badge:hover {
+            transform: scale(1.08);
         }
 
         .hero-image-box .floating-badge img {
@@ -463,12 +678,31 @@
         /* ===== SECTION COMMON ===== */
         section {
             padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Graphics for sections */
+        .section-graphic {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.04;
+        }
+
+        .section-graphic.dots {
+            background-image: radial-gradient(circle, #2e7d32 2px, transparent 2px);
+            background-size: 30px 30px;
+            width: 300px;
+            height: 300px;
         }
 
         .section-header {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 50px;
+            position: relative;
+            z-index: 1;
         }
 
         .section-header .tag {
@@ -483,6 +717,13 @@
             letter-spacing: 0.5px;
             margin-bottom: 12px;
             font-family: 'Inter', 'Segoe UI', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .section-header .tag:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: scale(1.05);
         }
 
         .section-header h2 {
@@ -509,6 +750,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .about-text h3 {
@@ -538,11 +781,24 @@
             font-weight: 500;
             font-size: 0.95rem;
             font-family: 'Inter', 'Segoe UI', sans-serif;
+            transition: all 0.3s ease;
+            padding: 6px 10px;
+            border-radius: 8px;
+        }
+
+        .about-text .highlight-list li:hover {
+            background: var(--primary-bg);
+            transform: translateX(6px);
         }
 
         .about-text .highlight-list li i {
             color: var(--primary);
             font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .about-text .highlight-list li:hover i {
+            transform: scale(1.3) rotate(10deg);
         }
 
         .about-image {
@@ -551,14 +807,25 @@
             padding: 50px;
             text-align: center;
             box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+        }
+
+        .about-image:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
         }
 
         .about-image .about-logo img {
-            width: 80px;
-            height: 80px;
-            border-radius: 12px;
+            width: 85px;
+            height: 85px;
+            border-radius: 14px;
             margin-bottom: 16px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            transition: transform 0.4s ease;
+        }
+
+        .about-image .about-logo img:hover {
+            transform: rotate(-6deg) scale(1.08);
         }
 
         .about-image h4 {
@@ -577,6 +844,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 28px;
+            position: relative;
+            z-index: 1;
         }
 
         .service-card {
@@ -584,14 +853,17 @@
             padding: 30px 24px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
             border: 1px solid rgba(0, 0, 0, 0.03);
             text-align: center;
+            transform-style: preserve-3d;
+            perspective: 800px;
+            will-change: transform;
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
+            transform: perspective(800px) rotateX(3deg) rotateY(5deg) translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
             border-color: var(--primary-light);
         }
 
@@ -606,7 +878,7 @@
             margin: 0 auto 16px;
             font-size: 1.6rem;
             color: var(--primary);
-            transition: var(--transition);
+            transition: all 0.4s ease;
             overflow: hidden;
         }
 
@@ -614,11 +886,17 @@
             width: 40px;
             height: 40px;
             border-radius: 8px;
+            transition: transform 0.4s ease;
         }
 
         .service-card:hover .icon {
             background: var(--primary);
             color: #fff;
+            transform: translateZ(20px);
+        }
+
+        .service-card:hover .icon img {
+            transform: scale(1.1) rotate(-5deg);
         }
 
         .service-card h4 {
@@ -626,6 +904,11 @@
             font-weight: 700;
             margin-bottom: 8px;
             font-family: var(--font-heading);
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover h4 {
+            color: var(--primary-dark);
         }
 
         .service-card p {
@@ -639,6 +922,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 24px;
+            position: relative;
+            z-index: 1;
         }
 
         .why-item {
@@ -648,12 +933,16 @@
             text-align: center;
             box-shadow: var(--shadow);
             border: 1px solid rgba(0, 0, 0, 0.02);
-            transition: var(--transition);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+            transform-style: preserve-3d;
+            perspective: 800px;
+            will-change: transform;
         }
 
         .why-item:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
+            transform: perspective(800px) rotateX(2deg) rotateY(3deg) translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-light);
         }
 
         .why-item .why-logo {
@@ -661,15 +950,25 @@
         }
 
         .why-item .why-logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            transition: transform 0.4s ease;
+        }
+
+        .why-item:hover .why-logo img {
+            transform: scale(1.15) rotate(-8deg);
         }
 
         .why-item h4 {
             font-size: 1rem;
             font-weight: 700;
             font-family: var(--font-heading);
+            transition: color 0.3s ease;
+        }
+
+        .why-item:hover h4 {
+            color: var(--primary-dark);
         }
 
         .why-item p {
@@ -683,6 +982,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 28px;
+            position: relative;
+            z-index: 1;
         }
 
         .property-card {
@@ -690,13 +991,16 @@
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
             border: 1px solid rgba(0, 0, 0, 0.03);
+            transform-style: preserve-3d;
+            perspective: 800px;
+            will-change: transform;
         }
 
         .property-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
+            transform: perspective(800px) rotateX(2deg) rotateY(4deg) translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
         }
 
         .property-card .img-placeholder {
@@ -708,6 +1012,12 @@
             font-size: 2.5rem;
             color: var(--primary);
             position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .property-card:hover .img-placeholder {
+            transform: scale(1.02);
         }
 
         .property-card .img-placeholder img {
@@ -715,6 +1025,12 @@
             height: 60px;
             border-radius: 12px;
             opacity: 0.6;
+            transition: all 0.5s ease;
+        }
+
+        .property-card:hover .img-placeholder img {
+            transform: scale(1.2) rotate(-10deg);
+            opacity: 0.9;
         }
 
         .property-card .body {
@@ -726,6 +1042,11 @@
             font-weight: 700;
             margin-bottom: 4px;
             font-family: var(--font-heading);
+            transition: color 0.3s ease;
+        }
+
+        .property-card:hover .body h4 {
+            color: var(--primary-dark);
         }
 
         .property-card .body .location {
@@ -757,6 +1078,12 @@
             border-radius: 50px;
             margin-top: 8px;
             font-family: 'Inter', 'Segoe UI', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .property-card:hover .tag-sm {
+            background: var(--primary);
+            color: #fff;
         }
 
         /* ===== BTR HOMES ===== */
@@ -768,6 +1095,21 @@
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btr-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.05), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
 
         .btr-section .btr-content h2 {
@@ -792,13 +1134,24 @@
             padding: 40px;
             text-align: center;
             box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+        }
+
+        .btr-section .btr-image:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: var(--shadow-hover);
         }
 
         .btr-section .btr-image .btr-logo img {
-            width: 70px;
-            height: 70px;
-            border-radius: 12px;
+            width: 75px;
+            height: 75px;
+            border-radius: 14px;
             margin-bottom: 12px;
+            transition: transform 0.4s ease;
+        }
+
+        .btr-section .btr-image .btr-logo img:hover {
+            transform: rotate(-8deg) scale(1.1);
         }
 
         .btr-section .btr-image h4 {
@@ -814,6 +1167,8 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
+            position: relative;
+            z-index: 1;
         }
 
         .contact-info h3 {
@@ -834,6 +1189,14 @@
             align-items: flex-start;
             gap: 16px;
             margin-bottom: 18px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info .info-item:hover {
+            background: var(--primary-bg);
+            transform: translateX(8px);
         }
 
         .contact-info .info-item i {
@@ -847,6 +1210,13 @@
             color: var(--primary);
             font-size: 1rem;
             flex-shrink: 0;
+            transition: all 0.4s ease;
+        }
+
+        .contact-info .info-item:hover i {
+            background: var(--primary);
+            color: #fff;
+            transform: scale(1.1) rotate(-10deg);
         }
 
         .contact-info .info-item h5 {
@@ -866,6 +1236,12 @@
             padding: 36px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+        }
+
+        .contact-form:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
         }
 
         .contact-form h4 {
@@ -883,7 +1259,7 @@
             border-radius: 12px;
             font-family: 'Inter', 'Segoe UI', sans-serif;
             font-size: 0.95rem;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             margin-bottom: 14px;
             background: #fafbfc;
         }
@@ -893,7 +1269,8 @@
             outline: none;
             border-color: var(--primary);
             background: #fff;
-            box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.08);
+            box-shadow: 0 0 0 5px rgba(76, 175, 80, 0.08);
+            transform: scale(1.01);
         }
 
         .contact-form textarea {
@@ -917,12 +1294,13 @@
             font-size: 2rem;
             box-shadow: 0 4px 30px rgba(37, 211, 102, 0.4);
             z-index: 999;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            animation: pulseGlow 2s infinite;
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.5);
+            transform: scale(1.12) rotate(-5deg);
+            box-shadow: 0 8px 50px rgba(37, 211, 102, 0.5);
         }
 
         /* ===== FOOTER ===== */
@@ -953,9 +1331,14 @@
         }
 
         footer .brand .footer-brand img {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 10px;
+            transition: transform 0.4s ease;
+        }
+
+        footer .brand .footer-brand img:hover {
+            transform: rotate(-10deg) scale(1.1);
         }
 
         footer .brand h3 {
@@ -1002,13 +1385,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             color: rgba(255, 255, 255, 0.6);
         }
 
         footer .socials a:hover {
             background: var(--primary);
             color: #fff;
+            transform: translateY(-4px) scale(1.1);
         }
 
         footer h5 {
@@ -1025,12 +1409,14 @@
 
         footer ul li a {
             font-size: 0.9rem;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             font-family: 'Inter', 'Segoe UI', sans-serif;
         }
 
         footer ul li a:hover {
             color: var(--primary-light);
+            transform: translateX(6px);
+            display: inline-block;
         }
 
         footer .bottom {
@@ -1147,17 +1533,25 @@
             }
 
             .logo {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+            }
+            .logo-img-sm {
+                width: 38px;
+                height: 38px;
             }
             .logo-tagline {
-                font-size: 0.45rem;
+                font-size: 0.4rem;
             }
             .logo-rera {
-                font-size: 0.4rem;
+                font-size: 0.35rem;
             }
             .hero-image-box .hero-logo img {
                 width: 80px;
                 height: 80px;
+            }
+            .btr-section .btr-image .btr-logo img {
+                width: 60px;
+                height: 60px;
             }
         }
 
@@ -1176,19 +1570,27 @@
             }
 
             .logo-tagline {
-                font-size: 0.4rem;
+                font-size: 0.35rem;
             }
             .logo-rera {
-                font-size: 0.35rem;
+                font-size: 0.3rem;
                 padding: 1px 5px;
             }
             .hero-image-box .hero-logo img {
-                width: 60px;
-                height: 60px;
+                width: 70px;
+                height: 70px;
             }
             .about-image .about-logo img {
                 width: 60px;
                 height: 60px;
+            }
+            .hero-image-box .floating-badge {
+                font-size: 0.6rem;
+                padding: 5px 12px;
+            }
+            .hero-image-box .floating-badge img {
+                width: 18px;
+                height: 18px;
             }
         }
     </style>
@@ -1199,7 +1601,7 @@
     <header id="header">
         <div class="container navbar">
             <a href="#" class="logo">
-                <!-- Logo - Small (40px) -->
+                <!-- Logo - Fixed size (45px) now bigger than text -->
                 <img src="logo.jpg" alt="BTR Ventures Logo" class="logo-img logo-img-sm" />
                 <div class="logo-text">
                     BTR<span>Ventures</span>
@@ -1227,8 +1629,13 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="home">
+        <!-- Graphics -->
+        <div class="graphic-circle"></div>
+        <div class="graphic-circle"></div>
+        <div class="graphic-dots"></div>
+
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content animate-on-scroll">
                 <h1>
                     Kerala's Trusted Partner for <br />
                     <span class="highlight">Commercial Real Estate</span> &amp; Construction
@@ -1240,39 +1647,38 @@
                     and long-term value.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#properties" class="btn btn-primary">
+                    <a href="#properties" class="btn btn-primary btn-hover">
                         <i class="fas fa-building" style="margin-right:8px;"></i> Explore Properties
                     </a>
-                    <a href="#contact" class="btn btn-outline">
+                    <a href="#contact" class="btn btn-outline btn-hover">
                         <i class="fas fa-phone" style="margin-right:8px;"></i> Contact Our Experts
                     </a>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat">
+                    <div class="stat stat-hover">
                         <h3>5+</h3>
                         <p>Years of Trust</p>
                     </div>
-                    <div class="stat">
+                    <div class="stat stat-hover">
                         <h3>200+</h3>
                         <p>Happy Clients</p>
                     </div>
-                    <div class="stat">
+                    <div class="stat stat-hover">
                         <h3>100+</h3>
                         <p>Properties</p>
                     </div>
                 </div>
             </div>
 
-            <div class="hero-image">
+            <div class="hero-image animate-on-scroll">
                 <div class="hero-image-box">
-                    <!-- Logo - Extra Large (120px) -->
-                    <div class="hero-logo">
+                    <!-- Logo - Extra Large with floating animation -->
+                    <div class="hero-logo float-animation">
                         <img src="logo.jpg" alt="BTR Ventures Logo" />
                     </div>
                     <h3>Your Investment. Our Expertise.</h3>
                     <p>Trusted commercial real estate partner across Kerala.</p>
                     <div class="floating-badge">
-                        <!-- Logo - Small badge (24px) -->
                         <img src="logo.jpg" alt="BTR" />
                         Est. 2020
                     </div>
@@ -1283,8 +1689,9 @@
 
     <!-- ===== ABOUT ===== -->
     <section id="about">
+        <div class="section-graphic dots" style="top:10%;right:5%;"></div>
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <span class="tag">About Us</span>
                 <h2>Welcome to <span>BTR Ventures</span></h2>
                 <p>
@@ -1294,7 +1701,7 @@
             </div>
 
             <div class="about-grid">
-                <div class="about-text">
+                <div class="about-text animate-on-scroll">
                     <h3>Your Trusted Real Estate Partner</h3>
                     <p>
                         We specialize in helping businesses, investors, startups, corporates,
@@ -1313,17 +1720,16 @@
                         <li><i class="fas fa-check-circle"></i> Personalized Solutions</li>
                     </ul>
                 </div>
-                <div class="about-image">
-                    <!-- Logo - Medium (80px) -->
+                <div class="about-image animate-on-scroll card-3d">
                     <div class="about-logo">
                         <img src="logo.jpg" alt="BTR Ventures Logo" />
                     </div>
                     <h4>BTR Ventures India Pvt Ltd</h4>
                     <p>Est. 2020 · Kerala's Trusted Commercial Real Estate Partner</p>
                     <div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-                        <span style="background:#fff;padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,0.04);font-family:'Inter',sans-serif;">🏢 Commercial</span>
-                        <span style="background:#fff;padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,0.04);font-family:'Inter',sans-serif;">🏗️ Construction</span>
-                        <span style="background:#fff;padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,0.04);font-family:'Inter',sans-serif;">📈 Investment</span>
+                        <span style="background:#fff;padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,0.04);font-family:'Inter',sans-serif;transition:all 0.3s ease;cursor:default;" onmouseover="this.style.transform='scale(1.05)';this.style.background='#4caf50';this.style.color='#fff';" onmouseout="this.style.transform='scale(1)';this.style.background='#fff';this.style.color='inherit';">🏢 Commercial</span>
+                        <span style="background:#fff;padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,0.04);font-family:'Inter',sans-serif;transition:all 0.3s ease;cursor:default;" onmouseover="this.style.transform='scale(1.05)';this.style.background='#4caf50';this.style.color='#fff';" onmouseout="this.style.transform='scale(1)';this.style.background='#fff';this.style.color='inherit';">🏗️ Construction</span>
+                        <span style="background:#fff;padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,0.04);font-family:'Inter',sans-serif;transition:all 0.3s ease;cursor:default;" onmouseover="this.style.transform='scale(1.05)';this.style.background='#4caf50';this.style.color='#fff';" onmouseout="this.style.transform='scale(1)';this.style.background='#fff';this.style.color='inherit';">📈 Investment</span>
                     </div>
                 </div>
             </div>
@@ -1331,40 +1737,41 @@
     </section>
 
     <!-- ===== WHY CHOOSE US ===== -->
-    <section style="background:var(--primary-bg);">
+    <section style="background:var(--primary-bg);position:relative;overflow:hidden;">
+        <div class="section-graphic dots" style="bottom:10%;left:5%;opacity:0.06;"></div>
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <span class="tag">Why Choose Us</span>
                 <h2>Why Businesses <span>Trust Us</span></h2>
                 <p>At BTR Ventures, trust is more than a value — it's the foundation of everything we do.</p>
             </div>
             <div class="why-grid">
-                <div class="why-item">
+                <div class="why-item animate-on-scroll card-3d">
                     <div class="why-logo"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Trusted Professionals</h4>
                     <p>Reliable &amp; experienced team</p>
                 </div>
-                <div class="why-item">
+                <div class="why-item animate-on-scroll card-3d">
                     <div class="why-logo"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Extensive Market Knowledge</h4>
                     <p>Deep understanding of Kerala</p>
                 </div>
-                <div class="why-item">
+                <div class="why-item animate-on-scroll card-3d">
                     <div class="why-logo"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Expert Investment Guidance</h4>
                     <p>Data-backed advice</p>
                 </div>
-                <div class="why-item">
+                <div class="why-item animate-on-scroll card-3d">
                     <div class="why-logo"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Transparent &amp; Ethical</h4>
                     <p>Clear dealings, no surprises</p>
                 </div>
-                <div class="why-item">
+                <div class="why-item animate-on-scroll card-3d">
                     <div class="why-logo"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Personalized Solutions</h4>
                     <p>Tailored to your needs</p>
                 </div>
-                <div class="why-item">
+                <div class="why-item animate-on-scroll card-3d">
                     <div class="why-logo"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Strong Network</h4>
                     <p>Across Kerala</p>
@@ -1376,54 +1783,54 @@
     <!-- ===== SERVICES ===== -->
     <section id="services">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <span class="tag">Our Services</span>
                 <h2>What We <span>Offer</span></h2>
                 <p>End-to-end commercial real estate and construction solutions.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon"><img src="logo.jpg" alt="BTR" /></div>
+                <div class="service-card animate-on-scroll card-3d">
+                    <div class="icon icon-hover"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Commercial Leasing</h4>
                     <p>Premium office spaces, showrooms &amp; retail outlets</p>
                 </div>
-                <div class="service-card">
-                    <div class="icon"><img src="logo.jpg" alt="BTR" /></div>
+                <div class="service-card animate-on-scroll card-3d">
+                    <div class="icon icon-hover"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Commercial Sales</h4>
                     <p>Buying &amp; selling with complete transparency</p>
                 </div>
-                <div class="service-card">
-                    <div class="icon"><img src="logo.jpg" alt="BTR" /></div>
+                <div class="service-card animate-on-scroll card-3d">
+                    <div class="icon icon-hover"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Office Space Solutions</h4>
                     <p>Ready-to-move, furnished &amp; custom offices</p>
                 </div>
-                <div class="service-card">
-                    <div class="icon"><img src="logo.jpg" alt="BTR" /></div>
+                <div class="service-card animate-on-scroll card-3d">
+                    <div class="icon icon-hover"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Showrooms &amp; Retail</h4>
                     <p>Strategic retail locations for growth</p>
                 </div>
-                <div class="service-card">
-                    <div class="icon"><img src="logo.jpg" alt="BTR" /></div>
+                <div class="service-card animate-on-scroll card-3d">
+                    <div class="icon icon-hover"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Warehouses &amp; Industrial</h4>
                     <p>Logistics hubs &amp; manufacturing facilities</p>
                 </div>
-                <div class="service-card">
-                    <div class="icon"><img src="logo.jpg" alt="BTR" /></div>
+                <div class="service-card animate-on-scroll card-3d">
+                    <div class="icon icon-hover"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Land Development</h4>
                     <p>Transforming land into valuable opportunities</p>
                 </div>
-                <div class="service-card">
-                    <div class="icon"><img src="logo.jpg" alt="BTR" /></div>
+                <div class="service-card animate-on-scroll card-3d">
+                    <div class="icon icon-hover"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Construction</h4>
                     <p>Quality commercial construction solutions</p>
                 </div>
-                <div class="service-card">
-                    <div class="icon"><img src="logo.jpg" alt="BTR" /></div>
+                <div class="service-card animate-on-scroll card-3d">
+                    <div class="icon icon-hover"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Space Management</h4>
                     <p>Comprehensive property management</p>
                 </div>
-                <div class="service-card">
-                    <div class="icon"><img src="logo.jpg" alt="BTR" /></div>
+                <div class="service-card animate-on-scroll card-3d">
+                    <div class="icon icon-hover"><img src="logo.jpg" alt="BTR" /></div>
                     <h4>Investment Consulting</h4>
                     <p>Informed real estate decisions</p>
                 </div>
@@ -1432,15 +1839,16 @@
     </section>
 
     <!-- ===== PROPERTIES ===== -->
-    <section id="properties" style="background:#fafbfc;">
+    <section id="properties" style="background:#fafbfc;position:relative;">
+        <div class="section-graphic dots" style="top:20%;right:10%;"></div>
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <span class="tag">Featured Properties</span>
                 <h2>Premium <span>Properties</span></h2>
                 <p>Explore our curated selection of commercial properties across Kerala.</p>
             </div>
             <div class="properties-grid">
-                <div class="property-card">
+                <div class="property-card animate-on-scroll card-3d">
                     <div class="img-placeholder"><img src="logo.jpg" alt="BTR" /></div>
                     <div class="body">
                         <h4>Premium Office Space</h4>
@@ -1449,7 +1857,7 @@
                         <span class="tag-sm">For Sale</span>
                     </div>
                 </div>
-                <div class="property-card">
+                <div class="property-card animate-on-scroll card-3d">
                     <div class="img-placeholder"><img src="logo.jpg" alt="BTR" /></div>
                     <div class="body">
                         <h4>Retail Showroom</h4>
@@ -1458,7 +1866,7 @@
                         <span class="tag-sm">For Lease</span>
                     </div>
                 </div>
-                <div class="property-card">
+                <div class="property-card animate-on-scroll card-3d">
                     <div class="img-placeholder"><img src="logo.jpg" alt="BTR" /></div>
                     <div class="body">
                         <h4>Warehouse Facility</h4>
@@ -1469,7 +1877,7 @@
                 </div>
             </div>
             <div style="text-align:center;margin-top:40px;">
-                <a href="#contact" class="btn btn-primary"><i class="fas fa-phone" style="margin-right:8px;"></i> View More Properties</a>
+                <a href="#contact" class="btn btn-primary btn-hover"><i class="fas fa-phone" style="margin-right:8px;"></i> View More Properties</a>
             </div>
         </div>
     </section>
@@ -1477,7 +1885,7 @@
     <!-- ===== BTR HOMES ===== -->
     <section id="btr">
         <div class="container">
-            <div class="btr-section">
+            <div class="btr-section animate-on-scroll">
                 <div class="btr-content">
                     <span class="tag" style="background:#fff;color:var(--primary-dark);">BTR Homes</span>
                     <h2>Your Trusted <span>Residential Partner</span></h2>
@@ -1491,19 +1899,18 @@
                         residential plots, or premium investment opportunities, our team
                         provides professional guidance throughout the buying journey.
                     </p>
-                    <a href="#contact" class="btn btn-primary"><i class="fas fa-home" style="margin-right:8px;"></i> Explore BTR Homes</a>
+                    <a href="#contact" class="btn btn-primary btn-hover"><i class="fas fa-home" style="margin-right:8px;"></i> Explore BTR Homes</a>
                 </div>
-                <div class="btr-image">
-                    <!-- Logo - Medium (70px) -->
-                    <div class="btr-logo">
+                <div class="btr-image card-3d">
+                    <div class="btr-logo float-slow">
                         <img src="logo.jpg" alt="BTR Homes" />
                     </div>
                     <h4 style="margin-top:12px;">BTR Homes</h4>
                     <p>Quality residential properties across Kerala</p>
                     <div style="margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
-                        <span style="background:var(--primary-bg);padding:4px 14px;border-radius:50px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;">Apartments</span>
-                        <span style="background:var(--primary-bg);padding:4px 14px;border-radius:50px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;">Villas</span>
-                        <span style="background:var(--primary-bg);padding:4px 14px;border-radius:50px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;">Plots</span>
+                        <span style="background:var(--primary-bg);padding:4px 14px;border-radius:50px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;transition:all 0.3s ease;cursor:default;" onmouseover="this.style.transform='scale(1.1)';this.style.background='#4caf50';this.style.color='#fff';" onmouseout="this.style.transform='scale(1)';this.style.background='var(--primary-bg)';this.style.color='inherit';">Apartments</span>
+                        <span style="background:var(--primary-bg);padding:4px 14px;border-radius:50px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;transition:all 0.3s ease;cursor:default;" onmouseover="this.style.transform='scale(1.1)';this.style.background='#4caf50';this.style.color='#fff';" onmouseout="this.style.transform='scale(1)';this.style.background='var(--primary-bg)';this.style.color='inherit';">Villas</span>
+                        <span style="background:var(--primary-bg);padding:4px 14px;border-radius:50px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;transition:all 0.3s ease;cursor:default;" onmouseover="this.style.transform='scale(1.1)';this.style.background='#4caf50';this.style.color='#fff';" onmouseout="this.style.transform='scale(1)';this.style.background='var(--primary-bg)';this.style.color='inherit';">Plots</span>
                     </div>
                 </div>
             </div>
@@ -1511,15 +1918,16 @@
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section id="contact" style="background:#fafbfc;">
+    <section id="contact" style="background:#fafbfc;position:relative;">
+        <div class="section-graphic dots" style="bottom:10%;left:5%;"></div>
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <span class="tag">Contact Us</span>
                 <h2>Get in <span>Touch</span></h2>
                 <p>We're here to help you find the right property.</p>
             </div>
             <div class="contact-grid">
-                <div class="contact-info">
+                <div class="contact-info animate-on-scroll">
                     <h3>BTR Ventures India Pvt. Ltd.</h3>
                     <p>
                         2nd Floor, Ariyattil Building, Vakkattu Road, Chakkaraparambu,<br />
@@ -1538,14 +1946,14 @@
                         <div><h5>Working Hours</h5><span>Mon–Sat: 9:30 AM – 5:30 PM<br />Sunday: Closed</span></div>
                     </div>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form animate-on-scroll card-3d">
                     <h4>Send a Message</h4>
                     <form id="contactForm">
                         <input type="text" placeholder="Your Name" required />
                         <input type="email" placeholder="Your Email" required />
                         <input type="tel" placeholder="Phone Number" />
                         <textarea placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn-primary" style="width:100%;">
+                        <button type="submit" class="btn btn-primary btn-hover" style="width:100%;">
                             <i class="fas fa-paper-plane" style="margin-right:8px;"></i> Send Message
                         </button>
                     </form>
@@ -1560,7 +1968,6 @@
             <div class="footer-grid">
                 <div class="brand">
                     <div class="footer-brand">
-                        <!-- Logo - Footer (35px) -->
                         <img src="logo.jpg" alt="BTR Ventures Logo" />
                         <h3>BTR<span>Ventures</span></h3>
                     </div>
@@ -1621,7 +2028,6 @@
             navLinks.classList.toggle('open');
         });
 
-        // Close nav on link click (mobile)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -1629,7 +2035,7 @@
             });
         });
 
-        // Active link highlight on scroll
+        // Active link highlight
         const sections = document.querySelectorAll('section[id]');
         const navLinkItems = document.querySelectorAll('.nav-links a');
 
@@ -1649,13 +2055,22 @@
                 }
             });
 
-            // Header shadow
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+
+            // Scroll Animations - Intersection Observer
+            const animElements = document.querySelectorAll('.animate-on-scroll');
+            animElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                if (rect.top < windowHeight - 80) {
+                    el.classList.add('visible');
+                }
+            });
         });
 
         // Contact form
@@ -1663,6 +2078,18 @@
             e.preventDefault();
             alert('Thank you for reaching out! We will get back to you shortly.');
             this.reset();
+        });
+
+        // Trigger initial visibility check on load
+        window.addEventListener('load', () => {
+            const animElements = document.querySelectorAll('.animate-on-scroll');
+            animElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                if (rect.top < windowHeight - 80) {
+                    el.classList.add('visible');
+                }
+            });
         });
     </script>
 
